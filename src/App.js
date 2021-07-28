@@ -7,7 +7,7 @@ class App extends Component {
     super(props);
     this.state = {
       allCollections: [],
-
+      currentCollection: [],
     }
   }
 
@@ -22,11 +22,21 @@ class App extends Component {
     })
     console.log(this.state.allCollections)
   }
+
+  getAllCardsFromCollection = async(collectionId) => {
+    let response = await axios.get(`http://127.0.0.1:8000/collections/${collectionId}/`) 
+    if (response.data.length !== 0){
+      this.setState({
+        currentCollection: response
+      })
+      console.log(response.data)
+    }
+  }
   render() { 
     return (
       <React.Fragment>
         <h1>Hello World</h1>
-        <DisplayCollections allCollections={this.state.allCollections}/>
+        <DisplayCollections allCollections={this.state.allCollections} getAllCardsFromCollection={this.getAllCardsFromCollection}/>
       </React.Fragment>
     );
   }

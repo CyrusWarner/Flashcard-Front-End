@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { Component } from 'react';
-import DisplayCollection from "./Components/DisplayCollections/displayCollections";
+import DisplayCollections from "./Components/DisplayCollections/displayCollections";
 
 class App extends Component {
   constructor(props){
@@ -18,15 +18,15 @@ class App extends Component {
   getAllCollections = async() => {
     let response = await axios.get('http://127.0.0.1:8000/collections/')
     this.setState({
-      allCollectons: response.data
+      allCollections: response.data
     })
-    console.log(response.data)
+    console.log(this.state.allCollections)
   }
   render() { 
     return (
       <React.Fragment>
         <h1>Hello World</h1>
-        <DisplayCollection allCollections={this.state.allCollections}/>
+        <DisplayCollections allCollections={this.state.allCollections}/>
       </React.Fragment>
     );
   }

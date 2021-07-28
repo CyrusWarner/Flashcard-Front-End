@@ -1,35 +1,25 @@
 import React from 'react';
+import { Card, Button, Container, Row } from "react-bootstrap";
+import "./displayCollections.css"
 
-const DisplayCollection = (props) => {
-    console.log(props.allCollections)
+const DisplayCollections = (props) => {
     return (
-        <React.Fragment>
-            <table>
-                <thead>
-                    <tr></tr>
-                    <tr>
-                        <th>All Available Collections</th>
-                    </tr>
-                    <tr></tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    {
-                        props.allCollections.map((collection) => {
-                            return(
-                                <React.Fragment key={collection.id}>
-                                <tr>
-                                    <td>{collection.name}</td>
-                                </tr>
-                                </React.Fragment>
-                            )
-                        })
-                    }
-                    </tr>
-                </tbody>
-            </table>
-        </React.Fragment>
-    );
-}
+        <Container fluid className='video-container'>
+  <Row className="justify-content-center">
+    {props.allCollections.map((collection) => {
+      return (
+          <React.Fragment>
+              <Card className="card-container" style={{ width: "18rem" }}>
+            <Card.Body>
+              <Card.Title>{collection.name}</Card.Title>
+            </Card.Body>
+          </Card>
+          </React.Fragment>
+      );
+    })}
+  </Row>
+  </Container>
+  );
+  };
  
-export default DisplayCollection;
+export default DisplayCollections;

@@ -10,6 +10,7 @@ class App extends Component {
     this.state = {
       allCollections: [],
       currentCollection: [],
+      currentCollectionOfFlashcards: [],
       flashcardNumber: 0,
     };
   }
@@ -23,25 +24,24 @@ class App extends Component {
     this.setState({
       allCollections: response.data,
     });
-    console.log(this.state.allCollections);
   };
 
-  getAllCardsFromCollection = async (collectionId) => {
+  getAllCardsFromCollection = async (collection) => {
     let response = await axios.get(
-      `http://127.0.0.1:8000/collections/${collectionId}/`
+      `http://127.0.0.1:8000/collections/${collection.id}/`
     );
     if (response.data.length !== 0) {
       this.setState({
-        currentCollection: response.data,
+        currentCollectionOfFlashcards: response.data,
+        currentCollection: collection
       });
-      console.log(response.data);
     }
   };
 
   goToNextFlashcard = () => {
     let tempNumber = this.state.flashcardNumber;
     tempNumber++;
-    if (tempNumber === this.state.currentCollection.length) {
+    if (tempNumber === this.state.currentCollectionOfFlashcards.length) {
       tempNumber = 0;
     }
     this.setState({
@@ -53,7 +53,7 @@ class App extends Component {
     let tempNumber = this.state.flashcardNumber;
     tempNumber--;
     if (tempNumber < 0) {
-      tempNumber = this.state.currentCollection.length - 1;
+      tempNumber = this.state.currentCollectionOfFlashcards.length - 1;
     }
     this.setState({
       flashcardNumber: tempNumber,
@@ -70,12 +70,14 @@ class App extends Component {
               getAllCardsFromCollection={this.getAllCardsFromCollection}
             />
           </Route>
-          {this.state.currentCollection.length !== 0 &&
+          {this.state.currentCollectionOfFlashcards.length !== 0 &&
           <Route path="/collection/:id/flashcards">
             <DisplayFlashcard
               previousFlashcard={this.goToLastFlashcard}
               nextFlashcard={this.goToNextFlashcard}
-              flashcard={this.state.currentCollection[this.state.flashcardNumber]}
+              flashcard={this.state.currentCollectionOfFlashcards[this.state.flashcardNumber]}
+              currentCollectionOfFlashcards={this.state.currentCollectionOfFlashcards}
+              currentCollection={this.state.currentCollection}
             />
           </Route>
             }

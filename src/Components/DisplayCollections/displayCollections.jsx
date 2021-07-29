@@ -16,7 +16,7 @@ const DisplayCollections = (props) => {
               <Card.Text>{collection.description}</Card.Text>
               <Link to={`/collection/${collection.id}/flashcards`}>
               <Button onClick={() =>{
-                  props.getAllCardsFromCollection(collection.id)
+                  props.getAllCardsFromCollection(collection)
               }} >See Flashcards</Button>
               </Link>
             </Card.Body>

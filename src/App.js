@@ -32,7 +32,7 @@ class App extends Component {
     );
     if (response.data.length !== 0) {
       this.setState({
-        currentCollection: response,
+        currentCollection: response.data,
       });
       console.log(response.data);
     }
@@ -73,8 +73,8 @@ class App extends Component {
           <Route path="/collection/:id/flashcards">
             <DisplayFlashcard
               previousFlashcard={this.goToLastFlashcard}
-              nextFlashcard={this.goToNextFlashcard}
-              flahscard={this.currentCollection[this.state.flashcardNumber]}
+              nextFlashcard={this.goToNextFlashcard} 
+              flashcard={this.currentCollection[this.state.flashcardNumber]}
             />
           </Route>
         </Switch>

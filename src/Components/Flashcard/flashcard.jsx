@@ -1,6 +1,6 @@
 import React from 'react'
 
-Flashcard = (props) => {
+const Flashcard = (props) => {
     return (
         <div>
             <div>

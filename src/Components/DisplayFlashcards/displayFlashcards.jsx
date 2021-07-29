@@ -1,7 +1,7 @@
 import React from 'react';
 import Flashcard from './../Flashcard/flashcard';
 
-DisplayFlashcards = (props) => {
+const DisplayFlashcards = (props) => {
     return(
         <div className="row row-spacer">
         <div className="col-md-4">

@@ -35,7 +35,6 @@ class App extends Component {
   render() { 
     return (
       <React.Fragment>
-        <h1>Hello World</h1>
         <DisplayCollections allCollections={this.state.allCollections} getAllCardsFromCollection={this.getAllCardsFromCollection}/>
       </React.Fragment>
     );

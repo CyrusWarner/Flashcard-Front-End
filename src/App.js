@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import DisplayCollections from "./Components/DisplayCollections/displayCollections";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import DisplayFlashcard from "./Components/DisplayFlashcards/displayFlashcards";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
   constructor(props) {

@@ -18,7 +18,7 @@ const DisplayFlashcards = (props) => {
             <button onClick={() => props.previousFlashcard()}>Previous Flashcard</button>
         </div>
         <div className="col-md-4">
-            <Flashcard flashcard={props.flashcard} />
+            <Flashcard flashcard={props.flashcard} getAllCardsFromCollection={getAllCardsFromCollection} currentCollection={currentCollection} />
         </div>
         <div className="col-md-4">
             <button onClick={() => props.nextFlashcard()}>Next Flashcard</button>

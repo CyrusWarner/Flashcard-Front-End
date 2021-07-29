@@ -78,6 +78,7 @@ class App extends Component {
               flashcard={this.state.currentCollectionOfFlashcards[this.state.flashcardNumber]}
               currentCollectionOfFlashcards={this.state.currentCollectionOfFlashcards}
               currentCollection={this.state.currentCollection}
+              getAllCardsFromCollection={this.getAllCardsFromCollection}
             />
           </Route>
             }

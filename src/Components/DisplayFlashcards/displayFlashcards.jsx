@@ -4,7 +4,8 @@ import { useHistory } from "react-router-dom";
 import FlashcardsForm from '../FlashcardsForm/flashcardsForm';
 
 const DisplayFlashcards = (props) => {
-    const currentCollectionId = props.currentCollection.id
+    const currentCollection = props.currentCollection
+    const getAllCardsFromCollection = props.getAllCardsFromCollection
     const history = useHistory();
     const {name, description} = props.currentCollection
     let currentCollectionOfFlashcardsLength = props.currentCollectionOfFlashcards.length
@@ -22,7 +23,7 @@ const DisplayFlashcards = (props) => {
         <div className="col-md-4">
             <button onClick={() => props.nextFlashcard()}>Next Flashcard</button>
         </div>
-        <FlashcardsForm currentCollectionId={currentCollectionId}/>
+        <FlashcardsForm currentCollection={currentCollection} getAllCardsFromCollection={getAllCardsFromCollection}/>
     </div>
     )
 }

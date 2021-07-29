@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Flashcard = (props) => {
+    console.log(props)
     return (
         <div>
             <div>

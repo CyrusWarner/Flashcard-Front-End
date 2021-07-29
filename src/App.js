@@ -61,7 +61,6 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state.currentCollection)
     return (
       <Router>
         <Switch>
@@ -71,18 +70,15 @@ class App extends Component {
               getAllCardsFromCollection={this.getAllCardsFromCollection}
             />
           </Route>
+          {this.state.currentCollection.length !== 0 &&
           <Route path="/collection/:id/flashcards">
             <DisplayFlashcard
               previousFlashcard={this.goToLastFlashcard}
-<<<<<<< HEAD
-              nextFlashcard={this.goToNextFlashcard} 
-              flashcard={this.currentCollection[this.state.flashcardNumber]}
-=======
               nextFlashcard={this.goToNextFlashcard}
               flashcard={this.state.currentCollection[this.state.flashcardNumber]}
->>>>>>> 455f65fe152d42734ebd24cbe01f1d492a2e8212
             />
           </Route>
+            }
         </Switch>
       </Router>
     );

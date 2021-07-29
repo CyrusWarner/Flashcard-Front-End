@@ -61,6 +61,7 @@ class App extends Component {
   };
 
   render() {
+    console.log(this.state.currentCollection)
     return (
       <Router>
         <Switch>
@@ -74,7 +75,7 @@ class App extends Component {
             <DisplayFlashcard
               previousFlashcard={this.goToLastFlashcard}
               nextFlashcard={this.goToNextFlashcard}
-              flahscard={this.currentCollection[this.state.flashcardNumber]}
+              flashcard={this.state.currentCollection[this.state.flashcardNumber]}
             />
           </Route>
         </Switch>

@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import DisplayFlashcard from "./Components/DisplayFlashcards/displayFlashcards";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
-
+//This component does not use the react hooks as we received an older document on accident that didnt include the must use react hooks line. All other components are using react hooks.
 class App extends Component {
   constructor(props) {
     super(props);
@@ -29,8 +29,13 @@ class App extends Component {
       currentCollectionOfFlashcards: savedData.currentCollectionOfFlashcards
     })
   }
+  if (savedData === null) {
+    this.setState({
+      loading: false
+    });
+  }
       
-    this.getAllCollections();
+    this.getAllCollections(savedData);
   }
 
   componentDidUpdate() {
@@ -40,7 +45,7 @@ class App extends Component {
     window.localStorage.setItem('saved-currentCollection', JSON.stringify(valuesToSave))
   }
 
-  getAllCollections = async () => {
+  getAllCollections = async (savedData) => {
     let response = await axios.get("http://127.0.0.1:8000/collections/");
     this.setState({
       allCollections: response.data,
@@ -92,6 +97,7 @@ class App extends Component {
             <DisplayCollections
               allCollections={this.state.allCollections}
               getAllCardsFromCollection={this.getAllCardsFromCollection}
+              getAllCollections={this.getAllCollections}
             />
           </Route>
           <Route path="/collection/:id/flashcards">

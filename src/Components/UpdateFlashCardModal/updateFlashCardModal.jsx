@@ -46,7 +46,7 @@ const UpdateFlashCardModal = (props) => {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Modal title</Modal.Title>
+          <Modal.Title>{props.currentCollection.name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form.Group>

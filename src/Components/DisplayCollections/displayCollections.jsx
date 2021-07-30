@@ -2,11 +2,13 @@ import React from 'react';
 import { Card, Button, Container, Row } from "react-bootstrap";
 import {Link} from 'react-router-dom'
 import "./displayCollections.css"
+import CollectionForm from '../CollectionForm/collectionForm';
 import {CSSTransition} from 'react-transition-group'
 const DisplayCollections = (props) => {
     return (
         <Container fluid className='video-container'>
           <h1 className="home-title">Collections</h1>
+          <CollectionForm getAllCollections={props.getAllCollections}/>
   <Row className="justify-content-center">
     {props.allCollections.map((collection) => {
       let collectionName = collection.name.charAt(0).toUpperCase() + collection.name.slice(1)
@@ -15,7 +17,7 @@ const DisplayCollections = (props) => {
             <CSSTransition
             in={true}
             appear={true}
-            timeout={600}
+            timeout={1000}
             classNames="fade"
             >
               <Card className="card-container border border-primary border-3" style={{ width: "18rem", margin: "1rem" }}> 

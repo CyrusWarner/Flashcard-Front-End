@@ -20,6 +20,7 @@ const FlashcardsForm = (props) => {
       answer: eachEntry.answer,
     };
     await axios.post("http://127.0.0.1:8000/flashcard/post_flashcard/", data);
+    seteachEntry({question: "", answer: ""})
     props.getAllCardsFromCollection(props.currentCollection)
   };
   const handleChange = (event) => {
@@ -33,6 +34,7 @@ const FlashcardsForm = (props) => {
         name="question"
         placeholder="Write a question..."
         onChange={handleChange}
+        value={eachEntry.question}
       ></input>
       <input
       className="form-control mb-2"
@@ -40,6 +42,7 @@ const FlashcardsForm = (props) => {
         name="answer"
         placeholder="Write a answer..."
         onChange={handleChange}
+        value={eachEntry.answer}
       ></input>
       <Button className="" type="submit">Submit New Flashcard</Button>
     </form>

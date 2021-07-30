@@ -7,6 +7,7 @@ import "./displayFlashcards.css";
 const DisplayFlashcards = (props) => {
   let currentCollection;
   let getAllCardsFromCollection;
+  let currentFlashcard;
   let description;
   let flashcardNumber;
   let currentCollectionOfFlashcardsLength;
@@ -22,6 +23,7 @@ const DisplayFlashcards = (props) => {
     collectionName =
       currentCollection.name.charAt(0).toUpperCase() +
       currentCollection.name.slice(1);
+    currentFlashcard = props.currentCollectionOfFlashcards[props.flashcardNumber]
   }
   //MAKES FIRST LETTER UPPERCASE FOR THE CURRENT COLLECTION
 
@@ -80,6 +82,7 @@ const DisplayFlashcards = (props) => {
                 getAllCardsFromCollection={getAllCardsFromCollection}
                 currentCollection={currentCollection}
               />
+
             </Col>
             <Col className="g-0 d-flex justify-content-end">
               <Button

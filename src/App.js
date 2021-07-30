@@ -22,11 +22,13 @@ class App extends Component {
     const data = window.localStorage.getItem('saved-currentCollection')
     const savedData = JSON.parse(data) 
     console.log(savedData)
+    if(savedData !== null){
     this.setState({
       loading: false,
       currentCollection: savedData.currentCollection,
       currentCollectionOfFlashcards: savedData.currentCollectionOfFlashcards
     })
+  }
       
     this.getAllCollections();
   }

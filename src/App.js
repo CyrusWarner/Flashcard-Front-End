@@ -18,6 +18,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    console.log('mounting')
     this.getAllCollections();
   }
 
@@ -32,12 +33,10 @@ class App extends Component {
     let response = await axios.get(
       `http://127.0.0.1:8000/collections/${collection.id}/`
     );
-    if (response.data.length !== 0) {
       this.setState({
         currentCollectionOfFlashcards: response.data,
         currentCollection: collection
       });
-    }
   };
 
   goToNextFlashcard = () => {
@@ -72,7 +71,6 @@ class App extends Component {
               getAllCardsFromCollection={this.getAllCardsFromCollection}
             />
           </Route>
-          {this.state.currentCollectionOfFlashcards.length !== 0 &&
           <Route path="/collection/:id/flashcards">
             <DisplayFlashcard
               previousFlashcard={this.goToLastFlashcard}
@@ -84,7 +82,6 @@ class App extends Component {
               flashcardNumber = {this.state.flashcardNumber}
             />
           </Route>
-            }
         </Switch>
       </Router>
     );

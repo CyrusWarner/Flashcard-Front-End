@@ -8,7 +8,7 @@ const Flashcard = (props) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const { getAllCardsFromCollection, currentCollection } = props;
 
-  const handleClick = (event) => {
+  const handleClick = () => {
     setIsFlipped(!isFlipped);
   };
   return (

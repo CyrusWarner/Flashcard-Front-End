@@ -1,6 +1,5 @@
 import React from "react";
 import Flashcard from "./../Flashcard/flashcard";
-import { useHistory } from "react-router-dom";
 import FlashcardsForm from "../FlashcardsForm/flashcardsForm";
 import { Container, Col, Row, Button } from "react-bootstrap";
 import "./displayFlashcards.css";

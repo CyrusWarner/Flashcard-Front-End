@@ -14,12 +14,28 @@ class App extends Component {
       currentCollection: [],
       currentCollectionOfFlashcards: [],
       flashcardNumber: 0,
+      loading: true
     };
   }
-
+//REQUIRES FURTHER DEBUGGING TRYING NEW THINGS IN REACT USES LOCAL STORAGE TO SAVE STATE SO ON PAGE REFRESH IT WILL KEEP YOU ON SAME PAGE
   componentDidMount() {
-    console.log('mounting')
+    const data = window.localStorage.getItem('saved-currentCollection')
+    const savedData = JSON.parse(data) 
+    console.log(savedData)
+    this.setState({
+      loading: false,
+      currentCollection: savedData.currentCollection,
+      currentCollectionOfFlashcards: savedData.currentCollectionOfFlashcards
+    })
+      
     this.getAllCollections();
+  }
+
+  componentDidUpdate() {
+    let currentCollection = this.state.currentCollection
+    let currentCollectionOfFlashcards = this.state.currentCollectionOfFlashcards
+    const valuesToSave = {currentCollection, currentCollectionOfFlashcards}
+    window.localStorage.setItem('saved-currentCollection', JSON.stringify(valuesToSave))
   }
 
   getAllCollections = async () => {
@@ -62,6 +78,8 @@ class App extends Component {
   };
 
   render() {
+    if (this.state.loading) return null;
+    else{
     return (
       <Router>
         <Switch>
@@ -86,6 +104,7 @@ class App extends Component {
       </Router>
     );
   }
+}
 }
 
 export default App;

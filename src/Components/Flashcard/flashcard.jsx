@@ -15,11 +15,11 @@ const Flashcard = (props) => {
     <Container>
     <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
       <div>
-        <Card className="border border-primary border-3 mb-2" style={{ width: "36rem", height: "36rem" }}>
+        <Card className="border border-primary border-3 mb-2" style={{ width: "30rem", height: "30rem" }}>
           <Card.Body className="d-flex flex-column">
             <Card.Title className="text-center fs-1">Question:</Card.Title>
             <Card.Text className="text-center fs-3">{props.flashcard.question}</Card.Text>
-            <Button className="mt-auto align-self-start" onClick={handleClick}>Click to flip</Button>
+            <Button className="mt-auto align-self-start" onClick={handleClick}>View Answer</Button>
           </Card.Body>
         </Card>
         <div className="d-flex justify-content-center">
@@ -31,11 +31,11 @@ const Flashcard = (props) => {
       </div>
       </div>
       <div>
-        <Card className="border border-primary border-3 mb-2" style={{ width: "36rem", height: "36rem" }}>
+        <Card className="border border-primary border-3 mb-2" style={{ width: "30rem", height: "30rem" }}>
           <Card.Body className="d-flex flex-column">
             <Card.Title className="text-center fs-1">Answer:</Card.Title>
             <Card.Text className="text-center fs-3">{props.flashcard.answer}</Card.Text>
-            <Button className="mt-auto align-self-start" onClick={handleClick}>Click to flip</Button>
+            <Button className="mt-auto align-self-start" onClick={handleClick}>View Question</Button>
           </Card.Body>
         </Card>
         <div className="d-flex justify-content-center">

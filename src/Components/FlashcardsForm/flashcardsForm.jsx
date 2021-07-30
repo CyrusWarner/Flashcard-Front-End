@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useState } from "react";
+import { Button } from "react-bootstrap";
 
 const FlashcardsForm = (props) => {
   const initialInputState = { question: "", answer: "" };
@@ -27,18 +28,20 @@ const FlashcardsForm = (props) => {
   return (
     <form onSubmit={(event) => handleSubmit(event)}>
       <input
+        className="form-control mb-2"
         type="text"
         name="question"
         placeholder="Write a question..."
         onChange={handleChange}
       ></input>
       <input
+      className="form-control mb-2"
         type="text"
         name="answer"
         placeholder="Write a answer..."
         onChange={handleChange}
       ></input>
-      <button type="submit">Submit Flashcard</button>
+      <Button className="" type="submit">Submit New Flashcard</Button>
     </form>
   );
 };

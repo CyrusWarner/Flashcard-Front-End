@@ -2,7 +2,7 @@ import React from "react";
 import UpdateFlashCardModal from "../UpdateFlashCardModal/updateFlashCardModal";
 import ReactCardFlip from "react-card-flip";
 import { useState } from "react";
-import { Card, Button, Container, Col, Row } from "react-bootstrap";
+import { Card, Button, Container } from "react-bootstrap";
 
 const Flashcard = (props) => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -11,6 +11,7 @@ const Flashcard = (props) => {
   const handleClick = () => {
     setIsFlipped(!isFlipped);
   };
+
   return (
     <Container>
       <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
@@ -38,7 +39,7 @@ const Flashcard = (props) => {
               getAllCardsFromCollection={getAllCardsFromCollection}
               currentCollection={currentCollection}
             />
-            <Button className="btn btn-danger">Delete Flashcard</Button>
+            <Button className="btn btn-danger" onClick={() => props.deleteFlashcard(props.flashcard.id)}>Delete Flashcard</Button>
           </div>
         </div>
         <div>

@@ -78,7 +78,9 @@ class App extends Component {
       flashcardNumber: tempNumber,
     });
   };
-
+  deleteFlashcard = async (flashcardId) => {
+    await axios.delete(`http://127.0.0.1:8000/flashcard_delete/${flashcardId}/`)
+  }
   render() {
     if (this.state.loading) return null;
     else{
@@ -93,6 +95,7 @@ class App extends Component {
           </Route>
           <Route path="/collection/:id/flashcards">
             <DisplayFlashcard
+              deleteFlashcard={this.deleteFlashcard}
               previousFlashcard={this.goToLastFlashcard}
               nextFlashcard={this.goToNextFlashcard}
               flashcard={this.state.currentCollectionOfFlashcards[this.state.flashcardNumber]}

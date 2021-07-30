@@ -75,6 +75,7 @@ const DisplayFlashcards = (props) => {
             </Col>
             <Col>
               <Flashcard
+                deleteFlashcard={props.deleteFlashcard}
                 flashcard={props.flashcard}
                 getAllCardsFromCollection={getAllCardsFromCollection}
                 currentCollection={currentCollection}

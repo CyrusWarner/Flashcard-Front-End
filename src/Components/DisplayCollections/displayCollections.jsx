@@ -18,7 +18,6 @@ const DisplayCollections = (props) => {
             timeout={600}
             classNames="fade"
             >
-              
               <Card className="card-container border border-primary border-3" style={{ width: "18rem", margin: "1rem" }}> 
             <Card.Body>
                 <Card.Title>{collectionName}</Card.Title>

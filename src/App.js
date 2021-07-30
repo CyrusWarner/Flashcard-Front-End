@@ -80,6 +80,7 @@ class App extends Component {
   };
   deleteFlashcard = async (flashcardId) => {
     await axios.delete(`http://127.0.0.1:8000/flashcard_delete/${flashcardId}/`)
+    this.getAllCardsFromCollection(this.state.currentCollection)
   }
   render() {
     if (this.state.loading) return null;

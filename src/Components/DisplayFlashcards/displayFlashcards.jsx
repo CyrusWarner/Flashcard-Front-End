@@ -3,7 +3,7 @@ import Flashcard from "./../Flashcard/flashcard";
 import { useHistory } from "react-router-dom";
 import FlashcardsForm from "../FlashcardsForm/flashcardsForm";
 import { Container, Col, Row, Button } from "react-bootstrap";
-import "./displayFlashcards.css";
+import './displayFlashcards.css'
 
 const DisplayFlashcards = (props) => {
   let currentCollection;
@@ -76,6 +76,9 @@ const DisplayFlashcards = (props) => {
           </Row>
         </Container>
       )}
+            {props.currentCollectionOfFlashcards.length === 0 &&
+      <div>Please create a flashcard to begin collection</div>
+      }
       <FlashcardsForm
         currentCollection={props.currentCollection}
         getAllCardsFromCollection={props.getAllCardsFromCollection}
@@ -85,3 +88,4 @@ const DisplayFlashcards = (props) => {
 };
 
 export default DisplayFlashcards;
+

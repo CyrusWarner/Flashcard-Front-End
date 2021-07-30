@@ -12,38 +12,43 @@ const Flashcard = (props) => {
     setIsFlipped(!isFlipped);
   };
   return (
+    <Container>
     <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
       <div>
-        <Card style={{ width: "18rem" }}>
-          <Card.Body>
-            <Card.Title></Card.Title>
-            <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
-            <Card.Text>{props.flashcard.question}</Card.Text>
-            <button onClick={handleClick}>Click to flip</button>
+        <Card className="border border-primary border-3 mb-2" style={{ width: "36rem", height: "36rem" }}>
+          <Card.Body className="d-flex flex-column">
+            <Card.Title className="text-center fs-1">Question:</Card.Title>
+            <Card.Text className="text-center fs-3">{props.flashcard.question}</Card.Text>
+            <Button className="mt-auto align-self-start" onClick={handleClick}>Click to flip</Button>
           </Card.Body>
         </Card>
+        <div className="d-flex justify-content-center">
         <UpdateFlashCardModal
         flashcard={props.flashcard}
         getAllCardsFromCollection={getAllCardsFromCollection}
         currentCollection={currentCollection}
       /> 
+      </div>
       </div>
       <div>
-        <Card style={{ width: "18rem" }}>
-          <Card.Body>
-            <Card.Title></Card.Title>
-            <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
-            <Card.Text>{props.flashcard.answer}</Card.Text>
-            <button onClick={handleClick}>Click to flip</button>
+        <Card className="border border-primary border-3 mb-2" style={{ width: "36rem", height: "36rem" }}>
+          <Card.Body className="d-flex flex-column">
+            <Card.Title className="text-center fs-1">Answer:</Card.Title>
+            <Card.Text className="text-center fs-3">{props.flashcard.answer}</Card.Text>
+            <Button className="mt-auto align-self-start" onClick={handleClick}>Click to flip</Button>
           </Card.Body>
         </Card>
+        <div className="d-flex justify-content-center">
         <UpdateFlashCardModal
         flashcard={props.flashcard}
         getAllCardsFromCollection={getAllCardsFromCollection}
         currentCollection={currentCollection}
       /> 
+      </div >
       </div>
     </ReactCardFlip>
+    </Container>
+
   );
 };
 export default Flashcard;

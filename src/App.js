@@ -4,6 +4,7 @@ import DisplayCollections from "./Components/DisplayCollections/displayCollectio
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import DisplayFlashcard from "./Components/DisplayFlashcards/displayFlashcards";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 class App extends Component {
   constructor(props) {
@@ -80,6 +81,7 @@ class App extends Component {
               currentCollectionOfFlashcards={this.state.currentCollectionOfFlashcards}
               currentCollection={this.state.currentCollection}
               getAllCardsFromCollection={this.getAllCardsFromCollection}
+              flashcardNumber = {this.state.flashcardNumber}
             />
           </Route>
             }

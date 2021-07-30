@@ -1,0 +1,18 @@
+.flashcard-title {
+    text-align: center; 
+    display:inline-block;
+    padding-bottom: 0.5rem;
+    position: relative;
+
+}
+
+.flashcard-title:after {
+    content: '';
+    height: 2px;
+    width: 100%;
+    background: black;
+    position: absolute;
+    left:0;
+    bottom: 0;
+
+}

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Flashcard from "./../Flashcard/flashcard";
 import FlashcardsForm from "../FlashcardsForm/flashcardsForm";
 import { Container, Col, Row, Button } from "react-bootstrap";
@@ -9,17 +9,17 @@ import AllFlashcards from "../AllFlashcards/allFlashcards";
 const pageTransition = {
   in: {
     opacity: 1,
-    x: 0
+    x: 0,
   },
   out: {
     opacity: 0,
-    x: "-100vh"
-  }
-}
+    x: "-100vh",
+  },
+};
 
 const DisplayFlashcards = (props) => {
-  const [showing, setShowing] = useState(false)
-  console.log(showing)
+  const [showing, setShowing] = useState(false);
+  console.log(showing);
   let currentCollection;
   let getAllCardsFromCollection;
   let currentFlashcard;
@@ -38,18 +38,13 @@ const DisplayFlashcards = (props) => {
     collectionName =
       currentCollection.name.charAt(0).toUpperCase() +
       currentCollection.name.slice(1);
-      currentFlashcard =
+    currentFlashcard =
       props.currentCollectionOfFlashcards[props.flashcardNumber];
   }
   //MAKES FIRST LETTER UPPERCASE FOR THE CURRENT COLLECTION
 
   return (
-    <motion.div
-      initial="out"
-      animate="in"
-      exit="out"
-      variants={pageTransition}
-    >
+    <motion.div initial="out" animate="in" exit="out" variants={pageTransition}>
       <Container style={{ marginLeft: "0px" }}>
         <div>
           <h1 className="flashcard-title mb-0">{collectionName}</h1>
@@ -86,17 +81,14 @@ const DisplayFlashcards = (props) => {
         <Container>
           <Row className="align-items-center">
             <Col className="g-0 d-flex justify-content-start">
-              <Button
-                className="rounded-pill"
-                onClick={() => props.previousFlashcard()}
-              >
+              <Button onClick={() => props.previousFlashcard()}>
                 <i className="bi bi-arrow-left-circle-fill">
                   {" "}
                   Previous Flashcard
                 </i>
               </Button>
             </Col>
-            <Col>
+            <Col xs={6}>
               <Flashcard
                 deleteFlashcard={props.deleteFlashcard}
                 flashcard={props.flashcard}
@@ -105,22 +97,40 @@ const DisplayFlashcards = (props) => {
               />
             </Col>
             <Col className="g-0 d-flex justify-content-end">
-              <Button
-                className="rounded-pill"
-                onClick={() => props.nextFlashcard()}
-              >
+              <Button onClick={() => props.nextFlashcard()}>
                 <i className="bi bi-arrow-right-circle-fill"> Next Flashcard</i>
               </Button>
             </Col>
           </Row>
         </Container>
       )}
-      <Button onClick={() => setShowing(!showing)}> Show All Flashcards
-      </Button>
-      {showing === true &&
-      <AllFlashcards currentCollectionOfFlashcards={props.currentCollectionOfFlashcards}/>
-      }
-        
+      <Container>
+        <Row>
+        <Col></Col>
+        <Col className="d-flex justify-content-center mt-5">
+        <Button onClick={() => setShowing(!showing)}>
+          {" "}
+          Show All Flashcards
+        </Button>
+        </Col>
+        <Col></Col>
+        </Row>
+      </Container>
+      <Container fluid>
+        <Row>
+          <Col></Col>
+          <Col className=" d-flex justify-content-center mt-5">
+            {showing === true && (
+              <AllFlashcards
+                currentCollectionOfFlashcards={
+                  props.currentCollectionOfFlashcards
+                }
+              />
+            )}
+          </Col>
+          <Col></Col>
+        </Row>
+      </Container>
     </motion.div>
   );
 };

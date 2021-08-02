@@ -1,4 +1,4 @@
-import { Card, Container, Row, Col } from "react-bootstrap";
+import { Card, Container, Row } from "react-bootstrap";
 import React from 'react';
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -10,9 +10,9 @@ const AllFlashcards = (props) => {
         {props.currentCollectionOfFlashcards.map((flashcard, index) => {
             return(
                 
-                
+                    <div>
                     <AnimatePresence>
-                    <motion.div
+                    <motion.div className="d-flex justify-content-center"
                     variants={{
                         hidden: {
                             opacity: 0
@@ -21,7 +21,7 @@ const AllFlashcards = (props) => {
                         visible: (index) => ({
                             opacity: 1,
                             transition: {
-                                delay: index * 0.25,
+                                delay: index * 0.1,
                             },
                         }),
                             
@@ -41,7 +41,7 @@ const AllFlashcards = (props) => {
                 </Card>
                 </React.Fragment>
         </motion.div>
-        </AnimatePresence>
+        </AnimatePresence></div>
             )
         })}
         </Row>

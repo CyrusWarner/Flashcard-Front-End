@@ -18,7 +18,6 @@ const Flashcard = (props) => {
         <div>
           <Card
             className="border border-primary border-3 mb-2"
-            style={{ width: "30rem", height: "30rem" }}
           >
             <Card.Body className="d-flex flex-column">
               <Card.Title className="text-center fs-1">Question:</Card.Title>
@@ -45,7 +44,6 @@ const Flashcard = (props) => {
         <div>
           <Card
             className="border border-primary border-3 mb-2"
-            style={{ width: "30rem", height: "30rem" }}
           >
             <Card.Body className="d-flex flex-column">
               <Card.Title className="text-center fs-1">Answer:</Card.Title>

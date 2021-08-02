@@ -18,11 +18,12 @@ const Flashcard = (props) => {
       <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
         <div>
           <p className="lead">
-        <div className="text-center mb-2">Current Flashcard: {props.currentFlashcard}/{props.currentCollectionOfFlashcardsLength}</div>
-        </p>
-          <Card
-            className="border border-primary border-3 mb-2"
-          >
+            <div className="text-center mb-2">
+              Current Flashcard: {props.currentFlashcard}/
+              {props.currentCollectionOfFlashcardsLength}
+            </div>
+          </p>
+          <Card className="border border-primary border-3 mb-2">
             <Card.Body className="d-flex flex-column">
               <Card.Title className="text-center fs-1">Question:</Card.Title>
               <Card.Text className="text-center fs-3">
@@ -42,13 +43,21 @@ const Flashcard = (props) => {
               getAllCardsFromCollection={getAllCardsFromCollection}
               currentCollection={currentCollection}
             />
-            <DeleteFlashcardModal currentCollection={currentCollection} deleteFlashcard={props.deleteFlashcard} currentFlashcard={props.flashcard.id}/>
+            <DeleteFlashcardModal
+              currentCollection={currentCollection}
+              deleteFlashcard={props.deleteFlashcard}
+              currentFlashcard={props.flashcard.id}
+            />
           </div>
         </div>
         <div>
-          <Card
-            className="border border-primary border-3 mb-2"
-          >
+          <p className="lead">
+            <div className="text-center mb-2">
+              Current Flashcard: {props.currentFlashcard}/
+              {props.currentCollectionOfFlashcardsLength}
+            </div>
+          </p>
+          <Card className="border border-primary border-3 mb-2">
             <Card.Body className="d-flex flex-column">
               <Card.Title className="text-center fs-1">Answer:</Card.Title>
               <Card.Text className="text-center fs-3">
@@ -68,7 +77,11 @@ const Flashcard = (props) => {
               getAllCardsFromCollection={getAllCardsFromCollection}
               currentCollection={currentCollection}
             />
-            <DeleteFlashcardModal currentCollection={currentCollection} deleteFlashcard={props.deleteFlashcard} currentFlashcard={props.flashcard.id}/>
+            <DeleteFlashcardModal
+              currentCollection={currentCollection}
+              deleteFlashcard={props.deleteFlashcard}
+              currentFlashcard={props.flashcard.id}
+            />
           </div>
         </div>
       </ReactCardFlip>

@@ -48,7 +48,7 @@ const DisplayFlashcards = (props) => {
 
   return (
     <motion.div initial="out" animate="in" exit="out" variants={pageTransition}>
-      <Container style={{ marginLeft: "0px" }}>
+      <Container style={{ marginLeft: "0px", marginTop: "1rem" }}>
         <div>
           <h1 className="flashcard-title mb-0">{collectionName}</h1>
         </div>

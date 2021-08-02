@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router";
 import Flashcard from "./../Flashcard/flashcard";
 import FlashcardsForm from "../FlashcardsForm/flashcardsForm";
 import { Container, Col, Row, Button } from "react-bootstrap";
@@ -17,15 +16,12 @@ const pageTransition = {
     x: "-100vh",
   },
 };
-
+// Current flashcard is commented out as we may need it later
 const DisplayFlashcards = (props) => {
   const [showing, setShowing] = useState(false);
-  let history = useHistory()
-  console.log(history)
-  console.log(showing);
   let currentCollection;
   let getAllCardsFromCollection;
-  let currentFlashcard;
+  // let currentFlashcard;
   let description;
   let flashcardNumber;
   let currentCollectionOfFlashcardsLength;
@@ -41,10 +37,9 @@ const DisplayFlashcards = (props) => {
     collectionName =
       currentCollection.name.charAt(0).toUpperCase() +
       currentCollection.name.slice(1);
-    currentFlashcard =
-      props.currentCollectionOfFlashcards[props.flashcardNumber];
+    // currentFlashcard =
+    //   props.currentCollectionOfFlashcards[props.flashcardNumber];
   }
-  //MAKES FIRST LETTER UPPERCASE FOR THE CURRENT COLLECTION
 
   return (
     <motion.div initial="out" animate="in" exit="out" variants={pageTransition}>

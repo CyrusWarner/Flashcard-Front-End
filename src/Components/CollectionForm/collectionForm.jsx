@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Button, Modal, Form } from "react-bootstrap";
+import { Container, Button, Modal, Form } from "react-bootstrap";
 
 const CollectionForm = (props) => {
   const initialInputState = { name: "", description: "" };

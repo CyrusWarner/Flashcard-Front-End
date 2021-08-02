@@ -15,18 +15,18 @@ const DisplayCollections = (props) => {
         <h1 className="home-title">Collections</h1>
         <CollectionForm getAllCollections={props.getAllCollections} />
         <Container>
-        <Row>
-          <Col></Col>
-          <Col>
-            <input
-              className="form-control"
-              placeholder="search..."
-              onChange={(event) => setSearch(event.target.value)}
-            ></input>
-          </Col>
-          <Col></Col>
-        </Row>
-      </Container>
+          <Row>
+            <Col></Col>
+            <Col>
+              <input
+                className="form-control"
+                placeholder="search..."
+                onChange={(event) => setSearch(event.target.value)}
+              ></input>
+            </Col>
+            <Col></Col>
+          </Row>
+        </Container>
         <Row className="d-flex justify-content-center">
           {filterCollections.map((collection) => {
             let collectionName =

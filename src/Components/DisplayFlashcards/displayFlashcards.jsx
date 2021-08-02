@@ -58,10 +58,6 @@ const DisplayFlashcards = (props) => {
             <div style={{ marginTop: "1rem" }}>
               Flashcards: {currentCollectionOfFlashcardsLength}
             </div>
-            <div>
-              Current flashcard: {flashcardNumber}/
-              {currentCollectionOfFlashcardsLength}
-            </div>
           </p>
         )}
       </Container>
@@ -97,6 +93,8 @@ const DisplayFlashcards = (props) => {
                 flashcard={props.flashcard}
                 getAllCardsFromCollection={getAllCardsFromCollection}
                 currentCollection={currentCollection}
+                currentCollectionOfFlashcardsLength={currentCollectionOfFlashcardsLength}
+                currentFlashcard={flashcardNumber}
               />
             </Col>
             <Col className="g-0 d-flex justify-content-end">

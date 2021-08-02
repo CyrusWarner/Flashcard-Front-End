@@ -17,6 +17,9 @@ const Flashcard = (props) => {
     <Container>
       <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
         <div>
+          <p className="lead">
+        <div className="text-center mb-2">Current Flashcard: {props.currentFlashcard}/{props.currentCollectionOfFlashcardsLength}</div>
+        </p>
           <Card
             className="border border-primary border-3 mb-2"
           >

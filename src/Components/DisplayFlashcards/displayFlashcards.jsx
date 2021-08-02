@@ -111,10 +111,12 @@ const DisplayFlashcards = (props) => {
         <Row>
         <Col></Col>
         <Col className="d-flex justify-content-center mt-5">
+          {props.currentCollectionOfFlashcards.length !==0 &&
         <Button onClick={() => setShowing(!showing)}>
           {" "}
           Show All Flashcards
         </Button>
+        }
         </Col>
         <Col></Col>
         </Row>

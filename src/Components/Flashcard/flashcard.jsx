@@ -1,5 +1,6 @@
 import React from "react";
 import UpdateFlashCardModal from "../UpdateFlashCardModal/updateFlashCardModal";
+import DeleteFlashcardModal from "../DeleteFlashcardModal/deleteFlashcardModal";
 import ReactCardFlip from "react-card-flip";
 import { useState } from "react";
 import { Card, Button, Container } from "react-bootstrap";
@@ -38,7 +39,7 @@ const Flashcard = (props) => {
               getAllCardsFromCollection={getAllCardsFromCollection}
               currentCollection={currentCollection}
             />
-            <Button className="btn btn-danger" onClick={() => props.deleteFlashcard(props.flashcard.id)}>Delete Flashcard</Button>
+            <DeleteFlashcardModal currentCollection={currentCollection} deleteFlashcard={props.deleteFlashcard} currentFlashcard={props.flashcard.id}/>
           </div>
         </div>
         <div>
@@ -64,7 +65,7 @@ const Flashcard = (props) => {
               getAllCardsFromCollection={getAllCardsFromCollection}
               currentCollection={currentCollection}
             />
-            <Button className="btn btn-danger">Delete Flashcard</Button>
+            <DeleteFlashcardModal currentCollection={currentCollection} deleteFlashcard={props.deleteFlashcard} currentFlashcard={props.flashcard.id}/>
           </div>
         </div>
       </ReactCardFlip>

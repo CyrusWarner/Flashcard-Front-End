@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import DisplayFlashcard from "./Components/DisplayFlashcards/displayFlashcards";
 import AllFlashcards from "./Components/AllFlashcards/allFlashcards";
 import { AnimatePresence } from "framer-motion";
+import NavigationBar from "./Components/Navbar/navbar";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
 //This component does not use the react hooks as we received an older document on accident that didnt include the must use react hooks line. All other components are using react hooks.
@@ -37,7 +38,7 @@ class App extends Component {
     });
   }
       
-    this.getAllCollections(savedData);
+    this.getAllCollections();
   }
 
   componentDidUpdate() {
@@ -47,7 +48,7 @@ class App extends Component {
     window.localStorage.setItem('saved-currentCollection', JSON.stringify(valuesToSave))
   }
 
-  getAllCollections = async (savedData) => {
+  getAllCollections = async () => {
     let response = await axios.get("http://127.0.0.1:8000/collections/");
     this.setState({
       allCollections: response.data,
@@ -96,6 +97,7 @@ class App extends Component {
       <div
       style={{overflowX: "hidden"}}>
       <Router>
+        <NavigationBar allCollections={this.state.allCollections} searchCollection={this.searchCollection}/>
         <AnimatePresence exitBeforeEnter>
         <Switch >
           <Route path="/" exact>

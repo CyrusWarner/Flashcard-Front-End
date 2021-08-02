@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
 import Flashcard from "./../Flashcard/flashcard";
 import FlashcardsForm from "../FlashcardsForm/flashcardsForm";
 import { Container, Col, Row, Button } from "react-bootstrap";
@@ -19,6 +20,8 @@ const pageTransition = {
 
 const DisplayFlashcards = (props) => {
   const [showing, setShowing] = useState(false);
+  let history = useHistory()
+  console.log(history)
   console.log(showing);
   let currentCollection;
   let getAllCardsFromCollection;

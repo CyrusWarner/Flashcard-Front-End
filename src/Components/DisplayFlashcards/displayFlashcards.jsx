@@ -1,10 +1,25 @@
-import React from "react";
+import React, {useState} from "react";
 import Flashcard from "./../Flashcard/flashcard";
 import FlashcardsForm from "../FlashcardsForm/flashcardsForm";
 import { Container, Col, Row, Button } from "react-bootstrap";
+import { motion } from "framer-motion";
 import "./displayFlashcards.css";
+import AllFlashcards from "../AllFlashcards/allFlashcards";
+
+const pageTransition = {
+  in: {
+    opacity: 1,
+    x: 0
+  },
+  out: {
+    opacity: 0,
+    x: "-100vh"
+  }
+}
 
 const DisplayFlashcards = (props) => {
+  const [showing, setShowing] = useState(false)
+  console.log(showing)
   let currentCollection;
   let getAllCardsFromCollection;
   let currentFlashcard;
@@ -23,12 +38,18 @@ const DisplayFlashcards = (props) => {
     collectionName =
       currentCollection.name.charAt(0).toUpperCase() +
       currentCollection.name.slice(1);
-    currentFlashcard = props.currentCollectionOfFlashcards[props.flashcardNumber]
+      currentFlashcard =
+      props.currentCollectionOfFlashcards[props.flashcardNumber];
   }
   //MAKES FIRST LETTER UPPERCASE FOR THE CURRENT COLLECTION
 
   return (
-    <div>
+    <motion.div
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={pageTransition}
+    >
       <Container style={{ marginLeft: "0px" }}>
         <div>
           <h1 className="flashcard-title mb-0">{collectionName}</h1>
@@ -49,17 +70,17 @@ const DisplayFlashcards = (props) => {
       {props.currentCollectionOfFlashcards.length === 0 && (
         <h1>Please create a flashcard to begin collection</h1>
       )}
-      <Container style={{marginLeft: "0px"}}>
+      <Container style={{ marginLeft: "0px" }}>
         <Row>
-        <Col>
+          <Col>
             <FlashcardsForm
               currentCollection={props.currentCollection}
               getAllCardsFromCollection={props.getAllCardsFromCollection}
             />
-            </Col>
-            <Col></Col>
-            <Col></Col>
-            </Row>
+          </Col>
+          <Col></Col>
+          <Col></Col>
+        </Row>
       </Container>
       {props.currentCollectionOfFlashcards.length !== 0 && (
         <Container>
@@ -82,7 +103,6 @@ const DisplayFlashcards = (props) => {
                 getAllCardsFromCollection={getAllCardsFromCollection}
                 currentCollection={currentCollection}
               />
-
             </Col>
             <Col className="g-0 d-flex justify-content-end">
               <Button
@@ -95,7 +115,13 @@ const DisplayFlashcards = (props) => {
           </Row>
         </Container>
       )}
-    </div>
+      <Button onClick={() => setShowing(!showing)}> Show All Flashcards
+      </Button>
+      {showing === true &&
+      <AllFlashcards currentCollectionOfFlashcards={props.currentCollectionOfFlashcards}/>
+      }
+        
+    </motion.div>
   );
 };
 

@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import DisplayCollections from "./Components/DisplayCollections/displayCollections";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import DisplayFlashcard from "./Components/DisplayFlashcards/displayFlashcards";
+import AllFlashcards from "./Components/AllFlashcards/allFlashcards";
+import { AnimatePresence } from "framer-motion";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
 //This component does not use the react hooks as we received an older document on accident that didnt include the must use react hooks line. All other components are using react hooks.
@@ -91,8 +93,11 @@ class App extends Component {
     if (this.state.loading) return null;
     else{
     return (
+      <div
+      style={{overflowX: "hidden"}}>
       <Router>
-        <Switch>
+        <AnimatePresence exitBeforeEnter>
+        <Switch >
           <Route path="/" exact>
             <DisplayCollections
               allCollections={this.state.allCollections}
@@ -100,7 +105,7 @@ class App extends Component {
               getAllCollections={this.getAllCollections}
             />
           </Route>
-          <Route path="/collection/:id/flashcards">
+          <Route path="/collection/:id/flashcards" >
             <DisplayFlashcard
               deleteFlashcard={this.deleteFlashcard}
               previousFlashcard={this.goToLastFlashcard}
@@ -111,9 +116,16 @@ class App extends Component {
               getAllCardsFromCollection={this.getAllCardsFromCollection}
               flashcardNumber = {this.state.flashcardNumber}
             />
+            <Route path="/collection/1/allFlashcards" >
+              <AllFlashcards
+              currentCollectionOfFlashcards = {this.state.currentCollectionOfFlashcards}
+               />
+            </Route>
           </Route>
         </Switch>
+        </AnimatePresence>
       </Router>
+      </div>
     );
   }
 }

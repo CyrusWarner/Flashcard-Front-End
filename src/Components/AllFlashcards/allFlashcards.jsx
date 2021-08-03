@@ -4,15 +4,13 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const AllFlashcards = (props) => {
     return (
-        
-        <Container fluid>
-            <Row className="d-flex" >
+        <AnimatePresence>
+            <Container className="text-center">
         {props.currentCollectionOfFlashcards.map((flashcard, index) => {
             return(
                 
-                    <div>
-                    <AnimatePresence>
-                    <motion.div className="d-flex justify-content-center"
+                    
+                    <motion.div className="d-inline-block text-center"
                     variants={{
                         hidden: {
                             opacity: 0
@@ -31,6 +29,7 @@ const AllFlashcards = (props) => {
                     animate="visible"
                     key={flashcard.id}
                     >
+                        
         
                 <React.Fragment>
                     <Card className=" border border-primary border-3" style={{ width: "18rem", margin: "1rem" }}> 
@@ -41,12 +40,14 @@ const AllFlashcards = (props) => {
                 </Card>
                 </React.Fragment>
         </motion.div>
-        </AnimatePresence></div>
+        
             )
         })}
-        </Row>
         </Container>
+        </AnimatePresence>
+        
     )
+    
 }
 
 export default AllFlashcards

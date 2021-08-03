@@ -114,10 +114,6 @@ const DisplayFlashcards = (props) => {
         <Col></Col>
         </Row>
       </Container>
-      <Container fluid>
-        <Row>
-          <Col></Col>
-          <Col className=" d-flex justify-content-center mt-5">
             {showing === true && (
               <AllFlashcards
                 currentCollectionOfFlashcards={
@@ -125,10 +121,6 @@ const DisplayFlashcards = (props) => {
                 }
               />
             )}
-          </Col>
-          <Col></Col>
-        </Row>
-      </Container>
     </motion.div>
   );
 };

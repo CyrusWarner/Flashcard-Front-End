@@ -41,7 +41,7 @@ const DisplayCollections = (props) => {
                   classNames="fade"
                 >
                   <Card
-                    className="d-flex card-container border border-primary border-3"
+                    className="card-container border border-primary border-3"
                     style={{ width: "18rem", margin: "1rem" }}
                   >
                     <Card.Body>

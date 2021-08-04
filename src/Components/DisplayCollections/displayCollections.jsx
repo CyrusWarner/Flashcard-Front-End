@@ -4,15 +4,47 @@ import { Link } from "react-router-dom";
 import "./displayCollections.css";
 import CollectionForm from "../CollectionForm/collectionForm";
 import { CSSTransition } from "react-transition-group";
+import { motion } from "framer-motion";
 const DisplayCollections = (props) => {
+  const sentence = {
+    hidden: {opacity: 1},
+    visible: {
+      opacity: 1,
+      transition: {
+        delay: 0.5,
+        staggerChildren: 0.08,
+      },
+    },
+  }
+  const letter = {
+    hidden: {opacity: 0, y: 50},
+    visible: {
+      opacity: 1,
+      y:0,
+    },
+  }
+  // <h1 className="home-title">Collections</h1>
   const [search, setSearch] = useState("");
+  const name = "Collections"
   const filterCollections = props.allCollections.filter((collection) =>
     collection.name.toLowerCase().includes(search.toLowerCase())
   );
   return (
     <React.Fragment>
       <Container fluid className="video-container">
-        <h1 className="home-title">Collections</h1>
+        <motion.h1 className="load-screen--messaage"
+        variants={sentence}
+        initial="hidden"
+        animate="visible"
+        className="home-title"
+        >
+            {name.split("").map((char, index) => {
+              return (
+                <motion.span key={char + "-" + index} variants={letter}>{char}</motion.span>
+              )
+            })}
+          
+        </motion.h1>
         <CollectionForm getAllCollections={props.getAllCollections} />
         <Container>
           <Row>

@@ -8,7 +8,7 @@ import { AnimatePresence } from "framer-motion";
 import NavigationBar from "./Components/Navbar/navbar";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
-//This component does not use the react hooks as we received an older document on accident that didnt include the must use react hooks line. All other components are using react hooks.
+//This is the only component that does not use the react hooks as we received an older document on accident that didnt include the must use react hooks line. All other components are using react hooks.
 class App extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +20,7 @@ class App extends Component {
       loading: true
     };
   }
-//REQUIRES FURTHER DEBUGGING TRYING NEW THINGS IN REACT USES LOCAL STORAGE TO SAVE STATE SO ON PAGE REFRESH IT WILL KEEP YOU ON SAME PAGE
+
   componentDidMount() {
     const data = window.localStorage.getItem('saved-currentCollection')
     const savedData = JSON.parse(data) 

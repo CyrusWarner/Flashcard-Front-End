@@ -16,12 +16,10 @@ const pageTransition = {
     x: "-100vh",
   },
 };
-// Current flashcard is commented out as we may need it later
 const DisplayFlashcards = (props) => {
   const [showing, setShowing] = useState(false);
   let currentCollection;
   let getAllCardsFromCollection;
-  // let currentFlashcard;
   let description;
   let flashcardNumber;
   let currentCollectionOfFlashcardsLength;
@@ -37,8 +35,6 @@ const DisplayFlashcards = (props) => {
     collectionName =
       currentCollection.name.charAt(0).toUpperCase() +
       currentCollection.name.slice(1);
-    // currentFlashcard =
-    //   props.currentCollectionOfFlashcards[props.flashcardNumber];
   }
 
   return (
@@ -88,7 +84,9 @@ const DisplayFlashcards = (props) => {
                 flashcard={props.flashcard}
                 getAllCardsFromCollection={getAllCardsFromCollection}
                 currentCollection={currentCollection}
-                currentCollectionOfFlashcardsLength={currentCollectionOfFlashcardsLength}
+                currentCollectionOfFlashcardsLength={
+                  currentCollectionOfFlashcardsLength
+                }
                 currentFlashcard={flashcardNumber}
               />
             </Col>
@@ -102,25 +100,23 @@ const DisplayFlashcards = (props) => {
       )}
       <Container>
         <Row>
-        <Col></Col>
-        <Col className="d-flex justify-content-center mt-5">
-          {props.currentCollectionOfFlashcards.length !==0 &&
-        <Button onClick={() => setShowing(!showing)}>
-          {" "}
-          Show All Flashcards
-        </Button>
-        }
-        </Col>
-        <Col></Col>
+          <Col></Col>
+          <Col className="d-flex justify-content-center mt-5">
+            {props.currentCollectionOfFlashcards.length !== 0 && (
+              <Button className="mb-3" onClick={() => setShowing(!showing)}>
+                {" "}
+                Show All Flashcards
+              </Button>
+            )}
+          </Col>
+          <Col></Col>
         </Row>
       </Container>
-            {showing === true && (
-              <AllFlashcards
-                currentCollectionOfFlashcards={
-                  props.currentCollectionOfFlashcards
-                }
-              />
-            )}
+      {showing === true && (
+        <AllFlashcards
+          currentCollectionOfFlashcards={props.currentCollectionOfFlashcards}
+        />
+      )}
     </motion.div>
   );
 };

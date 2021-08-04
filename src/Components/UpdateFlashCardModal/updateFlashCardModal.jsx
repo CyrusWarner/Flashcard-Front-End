@@ -17,7 +17,6 @@ const UpdateFlashCardModal = (props) => {
   const updateFlashcard = async () => {
     let flashcardId = props.flashcard.id;
     let collectionId = props.flashcard.collection;
-    debugger;
     const data = {
       id: flashcardId,
       collection: collectionId,

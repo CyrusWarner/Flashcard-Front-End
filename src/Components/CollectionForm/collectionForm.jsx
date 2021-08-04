@@ -14,7 +14,6 @@ const CollectionForm = (props) => {
   useEffect(() => {}, []);
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('here')
     postCollection();
   };
 

@@ -23,7 +23,6 @@ const DisplayCollections = (props) => {
       y:0,
     },
   }
-  // <h1 className="home-title">Collections</h1>
   const [search, setSearch] = useState("");
   const name = "Collections"
   const filterCollections = props.allCollections.filter((collection) =>
@@ -32,7 +31,7 @@ const DisplayCollections = (props) => {
   return (
     <React.Fragment>
       <Container fluid className="video-container">
-        <motion.h1 className="load-screen--messaage"
+        <motion.h1
         variants={sentence}
         initial="hidden"
         animate="visible"

@@ -24,7 +24,6 @@ class App extends Component {
   componentDidMount() {
     const data = window.localStorage.getItem('saved-currentCollection')
     const savedData = JSON.parse(data) 
-    console.log(savedData)
     if(savedData !== null){
     this.setState({
       loading: false,

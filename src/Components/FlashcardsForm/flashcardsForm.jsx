@@ -14,7 +14,6 @@ const FlashcardsForm = (props) => {
   };
   const submitFlashcard = async () => {
     let currentCollectionId = props.currentCollection.id;
-    console.log(currentCollectionId);
     const data = {
       collection: currentCollectionId,
       question: eachEntry.question,

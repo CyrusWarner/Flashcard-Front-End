@@ -1,4 +1,4 @@
-This was a group project built by James Burgess and I using React for the front-end and Django for the back-end
+This was a group project built by James Burgess and Cyrus Warner using React for the front-end and Django for the back-end
 
 This project was built for people looking for a site where they can create collections of flashcards and study anything they would like. The application also comes with animations created by Framer Motion API.
 

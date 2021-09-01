@@ -1,24 +1,21 @@
-import {Nav, Navbar} from "react-bootstrap"
+import {Nav, Navbar, Container} from "react-bootstrap"
 import { Link } from "react-router-dom";
+import * as AiIcons from "react-icons/ai";
 
 
 const NavigationBar = () => {
 
   return (
-    <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="#">Flashcards</Navbar.Brand>
-      <Navbar.Toggle aria-controls="navbarScroll" />
-      <Navbar.Collapse id="navbarScroll">
-        <Nav
-          className="mr-auto my-2 my-lg-0"
-          style={{ maxHeight: "100px" }}
-          navbarScroll
-        >
-          <Nav.Link as={Link} to={"/"}>Home</Nav.Link>
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
+    <Navbar bg="dark" variant="dark">
+    <Container>
+    <Navbar.Brand href="#home">Flashcards</Navbar.Brand>
+    <Nav className="me-auto">
+      <Nav.Link style={{color: "white"}} as={Link} to={"/"}><AiIcons.AiOutlineHome size="1.5rem" /> Home</Nav.Link> 
+    </Nav>
+    </Container>
+  </Navbar>
   );
 };
 
 export default NavigationBar
+

@@ -31,7 +31,9 @@ const DisplayCollections = (props) => {
   return (
     <React.Fragment>
       <Container fluid className="video-container">
-        <motion.h1
+        <Row>
+          <Col sm={6}>
+          <motion.h1
         variants={sentence}
         initial="hidden"
         animate="visible"
@@ -45,12 +47,15 @@ const DisplayCollections = (props) => {
           
         </motion.h1>
         <CollectionForm getAllCollections={props.getAllCollections} />
+          </Col>
+        <Col sm={6}></Col>
+        </Row>
         <Container>
           <Row>
             <Col></Col>
             <Col>
               <input
-                className="form-control"
+                className="form-control border border-primary"
                 placeholder="search..."
                 onChange={(event) => setSearch(event.target.value)}
               ></input>

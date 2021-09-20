@@ -1,12 +1,96 @@
-This was a group project built by James Burgess and Cyrus Warner using React for the front-end and Django for the back-end
+# Flashcard Tracker
 
-This project was built for people looking for a site where they can create collections of flashcards and study anything they would like. The application also comes with animations created by Framer Motion API.
+Flashcard Tracker was created for users looking to keep track of collections of flashcards and also search through collections of flashcards.
 
-The application homepage consists of a search bar a modal for creating a new collection and a short description of the collections shown below.
+## Table of Contents
+- [Project Status](#project-status)
+   - [Goals](#goals)
+   - [Task List](#task-list)
+   - [Future Tasks](#future-tasks)
+- [Technologies](#technologies)
+- [Bugs](#bugs)
+- [Images](#Images)
 
-![](Images/FlashcardHome.png)
+---
+## Project Status :green_circle:
+### Goals
+- Enable a user to be able to create a new collection of flashcards
+- Enable a user to view the collection of flashcards with description and collection length
+- Enable a user to search for a specific collection of flashcards
+- Enable a user to be able to see all flashcards
+- Enable a user to be able to see the current flashcard being displayed
+
+### Task List: 
+
+:heavy_check_mark: Enable a user to be able to create a new collection of flashcards
+
+:heavy_check_mark: Enable a user to update a flashcard
+
+:heavy_check_mark: Enable a user to delete a flashcard
+
+:heavy_check_mark: Enable a user to view the collection of flashcards with description and collection length
+
+:heavy_check_mark: Enable a user to search for a specific collection of flashcards
+
+:heavy_check_mark: Enable a user to be able to see all flashcards
+
+:heavy_check_mark: Enable a user to be able to see the current flashcard being displayed
 
 
-After clicking on see flashcards that will bring you over to the flashcard display page. A user will have CRUD functionality for each flashcard and comes with a display to show the current flashcard a user is on and to improve the UX of the application we included a show all flashcards button with a fade in animation.
+<!--- 
+Emojis for the Task List:
+DONE =      :heavy_check_mark:
+NOT DONE =  :x:
+WIP =       :recycle:
+BUGGED =    :warning:
+ --->
 
-![](Images/FlashcardDisplay.png)
+### Future Tasks  
+:x: Add ability to change between light and dark mode 
+
+:x: Add ability to be able to be able to update a collection
+:x: Add login and signup functionality 
+:x: Add functionality for donations
+
+---
+## Technologies
+- Visual Studio Code
+- Django 
+- Django Rest API
+- Framer Motion API
+- React Card Flip API
+- Bootstrap
+- React Bootstrap
+- Git / GitHub
+
+## Knowledge Used
+- CSS
+- Bootstrap
+- React
+- Django
+- Framer Motion API
+
+---
+## Design
+### Collection Home
+- Implemented a form for creating a new collection
+- Implemented a search bar for searching for a collection
+- Implemented a fade in animation using Framer Motion API
+- Implemented a card to display all collections with collection title and description
+### Flashcard Home
+- Implemented a modal for creating a new flashcard
+- Implemented a modal for updating a flashcard
+- Implemented a modal for deleting a flashcard
+- Implemented a counter for total flashcards and the current flashcard
+- Implemented a button for showing all flashcards with a stagger animation using Framer Motion API
+### Flashcard Display
+- Implemented a display for a flashcard question and flashcard answer
+- Implemented functionality for flipping a card over to view the question or answer
+
+---
+## Images
+![](src/Images/FlashcardDisplay.PNG)
+
+---
+
+![](src/Images/FlashcardHome.PNG)

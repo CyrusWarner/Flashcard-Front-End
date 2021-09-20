@@ -56,6 +56,7 @@ BUGGED =    :warning:
 ## Technologies
 - Visual Studio Code
 - Django 
+- React
 - Django Rest API
 - Framer Motion API
 - React Card Flip API

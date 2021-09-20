@@ -1,5 +1,7 @@
 # Flashcard Tracker
 
+![](Images/FlashcardHome.png)
+
 Flashcard Tracker was created for users looking to keep track of collections of flashcards and also search through collections of flashcards.
 
 ## Table of Contents
@@ -9,7 +11,7 @@ Flashcard Tracker was created for users looking to keep track of collections of 
    - [Future Tasks](#future-tasks)
 - [Technologies](#technologies)
 - [Bugs](#bugs)
-- [Images](#Images)
+- [Images](#images)
 
 ---
 ## Project Status :green_circle:
@@ -91,7 +93,3 @@ BUGGED =    :warning:
 ---
 ## Images
 ![](Images/FlashcardDisplay.png)
-
----
-
-![](Images/FlashcardHome.png)

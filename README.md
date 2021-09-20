@@ -89,8 +89,8 @@ BUGGED =    :warning:
 
 ---
 ## Images
-![](src/Images/FlashcardDisplay.PNG)
+![](Images/FlashcardDisplay.PNG)
 
 ---
 
-![](src/Images/FlashcardHome.PNG)
+![](Images/FlashcardHome.PNG)
